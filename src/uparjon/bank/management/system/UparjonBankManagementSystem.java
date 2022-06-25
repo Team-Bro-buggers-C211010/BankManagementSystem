@@ -7,7 +7,6 @@ package uparjon.bank.management.system;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -23,9 +22,9 @@ private static final String jdbcURL = "jdbc:mysql://localhost:3306/employeedb";
         
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver"); 
+            Class.forName("com.mysql.cj.jdbc.Driver"); 
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (Exception e) {
         }
         return connection;
     }
@@ -44,8 +43,5 @@ private static final String jdbcURL = "jdbc:mysql://localhost:3306/employeedb";
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+
 }

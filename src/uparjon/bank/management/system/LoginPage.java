@@ -5,6 +5,7 @@
 package uparjon.bank.management.system;
 
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +18,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
+        this.getRootPane().setDefaultButton(jButton1);
     }
 
     /**
@@ -338,23 +340,26 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //String Eemail = EEmailtext.getText();
-        String Epass = String.valueOf(EPasstext.getPassword());
-        String query = "select *from employeetable where EEmail = '" + EEmailtext.getText() +"'";
+        String Eemail = EEmailtext.getText();
+        String Epass = String.valueOf(EPasstext.getText());
+        String query = "Select *from employeetable where EEmail = '" + Eemail +"'";
         String Passdb = "";
         try{
             ResultSet rs;
             rs = (ResultSet) UparjonBankManagementSystem.queryExecute(query);
-            Passdb = rs.getString("EPass");
+            if(rs.next()){
+                Passdb = rs.getString("EPass");
+            }
         }catch(Exception e){
         }
         if(Epass.equals(Passdb))
         {
+            JOptionPane.showMessageDialog(this,"Login Successful");
             this.setVisible(false);
             new EmployeeLogin().setVisible(true);
         }
         else{
-            
+            JOptionPane.showMessageDialog(this,"Login failed");
         }
 //        String Passdb = 
         // TODO add your handling code here:
@@ -362,23 +367,25 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String Cemail = CEmailtext.getText();
-        String Cpass = String.valueOf(CPasstext.getPassword());
-        String query = "select *from customertable where CA.C.No = "+CACtext.getText();
+        String Cpass = String.valueOf(CPasstext.getText());
+        String query = "Select *from customertable where CACNo = "+CACtext.getText();
         String passdb = "";
         try{
             ResultSet rs = (ResultSet) UparjonBankManagementSystem.queryExecute(query);
-            passdb = rs.getString("CPass");
+            if(rs.next()){
+                passdb = rs.getString("CPass");
+            }
         }catch(Exception e){
-            
         }
         if(Cpass.equals(passdb))
         {
+            JOptionPane.showMessageDialog(this,"Login Successful");
             this.setVisible(false);
             new CustomerLogin().setVisible(true);
         }
         else 
         {
-            new CustomerLogin().setVisible(true);
+            JOptionPane.showMessageDialog(this,"Wrong PassWord,Login failed");
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
