@@ -338,9 +338,9 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String Eemail = EEmailtext.getText();
+        //String Eemail = EEmailtext.getText();
         String Epass = String.valueOf(EPasstext.getPassword());
-        String query = "select *from employeetable where EEmail = '" + Eemail+"'";
+        String query = "select *from employeetable where EEmail = '" + EEmailtext.getText() +"'";
         String Passdb = "";
         try{
             ResultSet rs;
@@ -362,9 +362,8 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String Cemail = CEmailtext.getText();
-        String C_AC = CACtext.getText();
         String Cpass = String.valueOf(CPasstext.getPassword());
-        String query = "select *from customertable where CA.C.No = "+C_AC;
+        String query = "select *from customertable where CA.C.No = "+CACtext.getText();
         String passdb = "";
         try{
             ResultSet rs = (ResultSet) UparjonBankManagementSystem.queryExecute(query);
@@ -375,11 +374,11 @@ public class LoginPage extends javax.swing.JFrame {
         if(Cpass.equals(passdb))
         {
             this.setVisible(false);
-            new EmployeeLogin().setVisible(true);
+            new CustomerLogin().setVisible(true);
         }
         else 
         {
-            new EmployeeLogin().setVisible(true);
+            new CustomerLogin().setVisible(true);
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
