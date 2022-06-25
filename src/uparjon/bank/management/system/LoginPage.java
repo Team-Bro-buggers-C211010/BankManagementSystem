@@ -44,7 +44,7 @@ public class LoginPage extends javax.swing.JFrame {
         CEmailtext = new javax.swing.JTextField();
         CACtext = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        SignUPEmpButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
@@ -110,8 +110,13 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setText("SignUp as employee");
+        SignUPEmpButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SignUPEmpButton.setText("SignUp as employee");
+        SignUPEmpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignUPEmpButtonActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("C_Login");
@@ -202,7 +207,7 @@ public class LoginPage extends javax.swing.JFrame {
                                 .addComponent(jButton1)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton2)
+                                    .addComponent(SignUPEmpButton)
                                     .addComponent(jButton6))))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -282,7 +287,7 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton3)
-                    .addComponent(jButton2)
+                    .addComponent(SignUPEmpButton)
                     .addComponent(jButton1))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,6 +399,12 @@ public class LoginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void SignUPEmpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUPEmpButtonActionPerformed
+        this.setVisible(false);
+        new EmpSignUP().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SignUPEmpButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -436,8 +447,8 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JPasswordField CPasstext;
     private javax.swing.JTextField EEmailtext;
     private javax.swing.JPasswordField EPasstext;
+    private javax.swing.JButton SignUPEmpButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
